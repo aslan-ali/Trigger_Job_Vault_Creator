@@ -1,0 +1,5 @@
+{
+  "path":{
+    "secret/data/${APP_NAMESPACE}/+/dev":{"capabilities":["read", "list", "update", "create", "delete"]},
+  }
+}
