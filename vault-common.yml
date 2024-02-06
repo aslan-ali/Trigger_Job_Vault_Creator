@@ -1,0 +1,15 @@
+stages:
+  - Vault-Creator
+
+Vault-Job:
+    stage: Vault-Creator
+    image: ${NEXUS_PROD_URL}/baseimages/python3
+    rules:
+      - if: '$TRIGGER_JOB == "Vault"'
+        when: always
+    before_script:
+      - curl -k --header "PRIVATE-TOKEN:$TOKEN" -o "VaultCreator.py" "https://gitlab.example.com/api/v4/projects/13/repository/files/scripts%2FVault-Creator.py/raw"
+    tags:
+      - dev 
+    script:
+      - python VaultCreator.py
