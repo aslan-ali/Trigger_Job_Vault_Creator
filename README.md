@@ -12,7 +12,7 @@
 
 ###### I trigger this Job from another project via ci.yml:
 ###### Example:
-<! --
+```bash
 output=$(curl --silent --request POST \
             --form "ref=master" \
             --form "variables[TRIGGER_JOB]=Vault" \
@@ -24,6 +24,6 @@ output=$(curl --silent --request POST \
 if [[ "$output" == *"created"* ]]; then
      echo "Vault-Creator Project triggered successfully!"
 fi
--- >
+```
 ###### I send variables to this Job. But i must predefined this variables on project or you can centralized Pipeline where you must set your variables automatically.
 
